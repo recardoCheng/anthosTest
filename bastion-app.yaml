@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bastion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bastion
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: bastion
+        version: v1
+    spec:
+      containers:
+      - image: docker.io/kennethreitz/httpbin
+        imagePullPolicy: IfNotPresent
+        name: bastion
+        ports:
+        - containerPort: 80

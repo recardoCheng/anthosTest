@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: istio
+data:
+  mesh: |
+    extensionProviders:
+    - name: "opa.default"
+      envoyExtAuthzGrpc:
+        service: "opa.default.svc.cluster.local"
+        port: "9191"
