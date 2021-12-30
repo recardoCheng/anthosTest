@@ -15,5 +15,5 @@ token = {"payload": payload} {
 }
 
 action_allowed {
-  token.payload.sub == parsed_path[1]
+  token.payload.sub == "r@iiot.io"
 }
